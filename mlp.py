@@ -29,9 +29,9 @@ val_dataloader = DataLoader(val_dataset, batch_size=args.batch_size, num_workers
 test_dataloader = DataLoader(test_dataset, batch_size=args.batch_size, num_workers=4)
 
 if args.layers > 0:
-  layers = [nn.Linear(input_size, args.hidden_size), nn.ReLU()]
+  layers = [nn.Linear(input_size, args.hidden_size), nn.Tanh()]
   for l in range(args.layers - 1):
-    layers += [nn.Linear(args.hidden_size, args.hidden_size), nn.ReLU()]
+    layers += [nn.Linear(args.hidden_size, args.hidden_size), nn.Tanh()]
   layers += [nn.Linear(args.hidden_size, output_size)]
 else:
   layers = [nn.Linear(input_size, output_size)]
