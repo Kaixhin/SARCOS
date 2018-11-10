@@ -9,7 +9,7 @@ from data import train_data, val_data, test_data
 parser = argparse.ArgumentParser(description='SARCOS MLP')
 parser.add_argument('--seed', type=int, default=123, help='Random seed')
 parser.add_argument('--hidden-size', type=int, default=256, help='Hidden size')
-parser.add_argument('--layers', type=int, default=5, help='Number of hidden layers')
+parser.add_argument('--layers', type=int, default=2, help='Number of hidden layers')
 parser.add_argument('--batch-size', type=int, default=512, help='Minibatch size')
 parser.add_argument('--lr', type=float, default=1e-3, help='Learning rate')
 args = parser.parse_args()
