@@ -4,9 +4,9 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.multioutput import MultiOutputRegressor
 from data import X_train, X_test, Y_train, Y_test
 
-parser = argparse.ArgumentParser(description='SARCOS DT')
+parser = argparse.ArgumentParser(description='SARCOS Gradient Boosted Trees')
 parser.add_argument('--seed', type=int, default=123, help='Random seed')
-parser.add_argument('--n-estimators', type=int, default=30, help='Number of estimators')
+parser.add_argument('--n-estimators', type=int, default=100, help='Number of estimators')
 parser.add_argument('--max-depth', type=int, default=10, help='Max depth')
 args = parser.parse_args()
 
