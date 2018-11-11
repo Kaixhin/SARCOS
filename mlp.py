@@ -4,7 +4,7 @@ import torch
 from torch import nn, optim
 from torch.nn import functional as F
 from torch.utils.data import TensorDataset, DataLoader
-from data import train_data, val_data, test_data
+from data import X_train, X_val, X_test, Y_train, Y_val, Y_test
 
 parser = argparse.ArgumentParser(description='SARCOS MLP')
 parser.add_argument('--seed', type=int, default=123, help='Random seed')
@@ -17,9 +17,9 @@ assert args.layers >= 0
 input_size, output_size = 21, 7
 torch.manual_seed(args.seed)
 
-X_train, Y_train = torch.from_numpy(train_data[:, :input_size]), torch.from_numpy(train_data[:, input_size:])
-X_val, Y_val = torch.from_numpy(val_data[:, :input_size]), torch.from_numpy(val_data[:, input_size:])
-X_test, Y_test = torch.from_numpy(test_data[:, :input_size]), torch.from_numpy(test_data[:, input_size:])
+X_train, Y_train = torch.from_numpy(X_train), torch.from_numpy(Y_train)
+X_val, Y_val = torch.from_numpy(X_val), torch.from_numpy(Y_val)
+X_test, Y_test = torch.from_numpy(X_test), torch.from_numpy(Y_test)
 
 train_dataset = TensorDataset(X_train, Y_train)
 val_dataset = TensorDataset(X_val, Y_val)
