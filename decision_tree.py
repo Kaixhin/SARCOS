@@ -10,6 +10,7 @@ args = parser.parse_args()
 
 model = DecisionTreeRegressor(max_depth=args.max_depth, random_state=args.seed)
 model.fit(X_train, Y_train)
+print('Param Count:', model.tree_.node_count)
 
 Y_hat_test = model.predict(X_test)
 MSE = np.square(Y_test - Y_hat_test).mean()

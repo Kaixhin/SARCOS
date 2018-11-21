@@ -11,6 +11,7 @@ args = parser.parse_args()
 
 model = RandomForestRegressor(n_estimators=args.n_estimators, max_depth=args.max_depth, random_state=args.seed)
 model.fit(X_train, Y_train)
+print('Param Count:', sum(m.tree_.node_count for m in model.estimators_))
 
 Y_hat_test = model.predict(X_test)
 MSE = np.square(Y_test - Y_hat_test).mean()
