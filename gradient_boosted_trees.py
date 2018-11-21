@@ -12,6 +12,7 @@ args = parser.parse_args()
 
 model = MultiOutputRegressor(GradientBoostingRegressor(n_estimators=args.n_estimators, max_depth=args.max_depth, random_state=args.seed), n_jobs=-1)
 model.fit(X_train, Y_train)
+print('Param Count:', sum(sum(m_[0].tree_.node_count for m_ in m.estimators_) for m in model.estimators_))
 
 Y_hat_test = model.predict(X_test)
 MSE = np.square(Y_test - Y_hat_test).mean()
