@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def get_tree_avg_depth(estimator):
+def get_tree_param_counts(estimator):
   n_nodes = estimator.tree_.node_count
   left_children = list(estimator.tree_.children_left)
   right_children = list(estimator.tree_.children_right)
@@ -19,5 +19,7 @@ def get_tree_avg_depth(estimator):
     else:
       is_leaf[node_id] = True
 
+  params = n_nodes + np.sum(is_leaf) * (estimator.n_outputs_ - 1)  # Add extra params for multivariate ouputs
   node_depth = node_depth[is_leaf]
-  return np.mean(node_depth)
+  path_params = node_depth + estimator.n_outputs_ - 1  # Add extra params for multivariate ouputs
+  return params, np.mean(path_params)
