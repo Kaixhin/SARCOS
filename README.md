@@ -1,7 +1,9 @@
 SARCOS
 ======
 
-Machine learning methods applied to the [SARCOS dataset](http://www.gaussianprocess.org/gpml/data/).
+Machine learning methods applied to the [SARCOS dataset](http://www.gaussianprocess.org/gpml/data/), treated as a multivariate regression problem.
+
+**Note: As discovered by [@rajshah4](https://github.com/rajshah4), there is a large amount of leakage between the training and test sets. This code and results are currently left as-is for reference, but should not be considered representative of results with a proper training/test split.**
 
 | Method                           | MSE      | # Params    | # Avg. Path Params |
 | -------------------------------- | -------- |-------------|--------------------|
